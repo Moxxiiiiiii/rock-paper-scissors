@@ -4,25 +4,30 @@ getComputerChoice and getHumanChoice */
 //Create the name of the function
 function getComputerChoice(input){
     //Create expression that returns a number between 0-99.
-    let randomNumber = Math.random() * 100
+    const randomNumber = Math.random() * 100
     //Create If statements as follows:
     //If number returned is < 33 return "rock"
     if (randomNumber < 33) {
-        return "Rock";
+        computerChoice = "rock";
     //If number returned is > 33 && < 66 return "paper"
     } else if (randomNumber > 33 & randomNumber < 66) {
-        return "Paper";
+        computerChoice = "paper";
     //If number returned is > 66 return "scissors"
-    } else (randomNumber) > 66 
-        return "Scissors";
+    } else if (randomNumber > 66) {
+        computerChoice = "scissors";
+    }
+    console.log(computerChoice)
 }
+
 
 //Create the name of the function
 //humanChoice needs to be case insensitive
 function getHumanChoice(input) {
     //Create and Return value for user input
-    let humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase()
+    humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
+    console.log(humanChoice);
 }
+
 
 //Declare Variables for Player and Computer Score
 let humanScore =  0
@@ -71,3 +76,15 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+//Define new function to tie rounds together
+function playGame(input) {
+    //Declare score variables in function to track game
+    let totalScore = (humanScore + computerScore);
+    console.log("This is Your Score:" + humanScore)
+    //Play 5 playRound
+    do
+        playRound(humanSelection, humanChoice)
+    while (totalScore > 6);
+
+}
