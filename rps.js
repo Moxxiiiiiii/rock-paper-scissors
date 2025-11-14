@@ -9,14 +9,16 @@ function getComputerChoice(input){
     //If number returned is < 33 return "rock"
     if (randomNumber < 33) {
         computerChoice = "rock";
+        return computerChoice;
     //If number returned is > 33 && < 66 return "paper"
     } else if (randomNumber > 33 & randomNumber < 66) {
         computerChoice = "paper";
+        return computerChoice;
     //If number returned is > 66 return "scissors"
     } else if (randomNumber > 66) {
         computerChoice = "scissors";
+        return computerChoice;
     }
-    console.log(computerChoice)
 }
 
 
@@ -25,7 +27,7 @@ function getComputerChoice(input){
 function getHumanChoice(input) {
     //Create and Return value for user input
     humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
-    console.log(humanChoice);
+    return humanChoice
 }
 
 
@@ -42,49 +44,54 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice == "rock" & computerChoice == "scissors") {
         console.log("You win! Rock beats Scissors!");
         humanScore++;
+        return humanScore;
     } else if (humanChoice == "rock" & computerChoice == "rock") {
         console.log("It's a tie!");
     } else if (humanChoice == "rock" & computerChoice == "paper") {
         console.log("You lose! Paper beats Rock!"); 
         computerScore++
+        return computerScore;
     }
 
     // scissors beats paper, ties to scissors, loses to rock
     if (humanChoice == "scissors" & computerChoice == "paper") {
         console.log("You win! Scissors beats Paper!");
         humanScore++
+        return humanScore;
     } else if (humanChoice == "scissors" & computerChoice == "scissors") {
         console.log("It's a tie!");
     } else if (humanChoice == "scissors" & computerChoice == "rock") {
         console.log("You lose! Rock beats Scissors!")
         computerScore++
+        return computerScore;
     }
 
     // paper beats rock, ties to paper and loses to scissors
     if (humanChoice == "paper" & computerChoice == "rock") {
         console.log("You win! Paper beats Rock!");
         humanScore++
+        return humanScore;
     } else if (humanChoice == "paper" & computerChoice == "paper") {
         console.log("It's a tie!");
     } else if (humanChoice == "paper" & computerChoice == "scissors") {
         console.log("You lose!")
         computerScore++
+        return computerScore;
     }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+const totalScore = (humanScore + computerScore);
 
 //Define new function to tie rounds together
 function playGame(input) {
     //Declare score variables in function to track game
-    let totalScore = (humanScore + computerScore);
+
     console.log("This is Your Score:" + humanScore)
-    //Play 5 playRound
+    //Play 5 playRound -- Best of 3 seemed more fun so doing that now.
     do
-        playRound(humanSelection, humanChoice)
+        playRound(humanSelection, computerSelection)
     while (totalScore > 6);
 
 }
