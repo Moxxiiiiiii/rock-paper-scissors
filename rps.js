@@ -30,11 +30,6 @@ function getHumanChoice(input) {
     return humanChoice
 }
 
-
-//Declare Variables for Player and Computer Score
-let humanScore =  0
-let computerScore = 0
-
 //Let's Begin structuring the Round
 //Time to create a new function
 function playRound(humanChoice, computerChoice) {
@@ -82,16 +77,23 @@ function playRound(humanChoice, computerChoice) {
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-const totalScore = (humanScore + computerScore);
 
 //Define new function to tie rounds together
-function playGame(input) {
+function playGame(humanSelection, computerSelection) {
     //Declare score variables in function to track game
+    let humanScore =  0
+    let computerScore = 0
 
-    console.log("This is Your Score:" + humanScore)
-    //Play 5 playRound -- Best of 3 seemed more fun so doing that now.
-    do
-        playRound(humanSelection, computerSelection)
-    while (totalScore > 6);
+    //Run functions to return values.
+    getComputerChoice()
+    getHumanChoice()
+
+    //Play 5 playRound
+    for (let i = 0; i > 5; i++)
+        playRound(humanSelection, ComputerSelection)
+        console.log("This is Your Score:" + " " + humanScore)
+        console.log("Your opponent's score is:" + " " + computerScore)
 
 }
+
+playGame(humanSelection, computerSelection)
