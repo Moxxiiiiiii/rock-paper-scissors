@@ -12,7 +12,7 @@ function getComputerChoice(input){
         return computerChoice;
     //If number returned is > 33 && < 66 return "paper"
     } else if (randomNumber > 33 & randomNumber < 66) {
-        computerChoice = "paper";
+        computerChoice = "paper";resolve
         return computerChoice;
     //If number returned is > 66 return "scissors"
     } else if (randomNumber > 66) {
@@ -29,6 +29,10 @@ function getHumanChoice(input) {
     humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
     return humanChoice
 }
+
+//To manipulate score it must be declared before round
+let humanScore = 0 
+let computerScore = 0
 
 //Let's Begin structuring the Round
 //Time to create a new function
@@ -81,18 +85,26 @@ const computerSelection = getComputerChoice();
 //Define new function to tie rounds together
 function playGame(humanSelection, computerSelection) {
     //Declare score variables in function to track game
-    let humanScore =  0
-    let computerScore = 0
-
-    //Run functions to return values.
-    getComputerChoice()
-    getHumanChoice()
+    humanScore =  0;
+    computerScore = 0;
 
     //Play 5 playRound
-    for (let i = 0; i > 5; i++)
-        playRound(humanSelection, ComputerSelection)
-        console.log("This is Your Score:" + " " + humanScore)
-        console.log("Your opponent's score is:" + " " + computerScore)
+    for (let i = 0; i > 5; i++) {
+        console.log("This is Your Score:" + " " + humanScore);
+        console.log("Your opponent's score is:" + " " + computerScore);
+        //Run functions to return values.
+        getHumanChoice();
+        getComputerChoice();
+        playRound(humanSelection, computerSelection); 
+    }
+    //Specify game win-con
+    if (humanScore > computerScore) {
+        console.log("Congratualtions, you win!");
+    } else if (humanScore < computerScore){
+        console.log("Sorry, you lost!");
+    } else {
+        console.log("Woah, it's a tie!");
+    }
 
 }
 
