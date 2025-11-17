@@ -96,7 +96,7 @@ function playGame(humanSelection, computerSelection) {
         getHumanChoice();
         getComputerChoice();
         //init round.
-        playRound(humanSelection, computerSelection); 
+        playRound(humanChoice, computerChoice); 
     }
     //Specify game win-con
     if (humanScore > computerScore) {
