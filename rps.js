@@ -12,7 +12,7 @@ function getComputerChoice(input){
         return computerChoice;
     //If number returned is > 33 && < 66 return "paper"
     } else if (randomNumber > 33 & randomNumber < 66) {
-        computerChoice = "paper";resolve
+        computerChoice = "paper";
         return computerChoice;
     //If number returned is > 66 return "scissors"
     } else if (randomNumber > 66) {
@@ -89,12 +89,13 @@ function playGame(humanSelection, computerSelection) {
     computerScore = 0;
 
     //Play 5 playRound
-    for (let i = 0; i > 5; i++) {
+    for (let i = 0; i < 5; i++) {
         console.log("This is Your Score:" + " " + humanScore);
         console.log("Your opponent's score is:" + " " + computerScore);
         //Run functions to return values.
         getHumanChoice();
         getComputerChoice();
+        //init round.
         playRound(humanSelection, computerSelection); 
     }
     //Specify game win-con
